@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-class UserSignupRequest(BaseModel): #회원가입
-    username:str
-    password:str
+class UserSignupRequest(BaseModel):#회원가입
+    username: str
+    email: str
+    password: str
      
 class UserInDB(BaseModel): #회원가입 db로 저장
     id=int

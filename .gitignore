@@ -36,3 +36,6 @@ static/uploads/
 
 # MyPy
 .mypy_cache/
+
+#scripts
+scripts/
