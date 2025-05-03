@@ -5,6 +5,8 @@ from app.api.auth import schema
 from sqlalchemy.orm import Session
 from app.database.session import get_db
 from app.models.user import User
+from app.core.security import get_current_user
+
 router=APIRouter(prefix="/auth",tags=["Auth"])
 
 @router.post("/signup")
@@ -31,3 +33,6 @@ def login(req:schema.UserLoginRequest,db:Session=Depends(get_db)):
     access_token = create_access_token({"sub": str(user.id)})
     return {"access_token": access_token, "token_type": "bearer"}
             
+@router.get("/me")
+def get_my_info(current_user: User = Depends(get_current_user)):
+    return {"id": current_user.id, "username": current_user.username}
