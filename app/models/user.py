@@ -5,39 +5,29 @@ from sqlalchemy.orm import relationship
 from app.database.base import Base
 from app.core.time import get_kst_now
 
-# Note: Importing NoseVector here creates a circular dependency
-# if NoseVector also imports User using a direct import.
-# Using string names in relationships ('NoseVector') is often preferred
-# in models to avoid this.
-# from .nose import NoseVector
+# from .nose import NoseVector # 순환 참조 방지를 위해 직접 임포트 대신 문자열 참조 권장
 
 class User(Base):
     """
-    Represents a user in the application.
-
-    Users are associated with nose vectors and have standard authentication
-    fields like username, email, and a hashed password.
+    애플리케이션의 사용자 계정을 나타내는 모델입니다.
+    각 사용자는 고유한 ID를 가지며, 비문 데이터와 연결될 수 있습니다.
     """
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
+    # 사용자의 고유 식별자 (Primary Key)
+    user_id = Column(Integer, primary_key=True, index=True, name="id") # 변수명은 user_id로, 컬럼명은 id로 유지
     username = Column(String, unique=True, index=True, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
     hashed_password = Column(String, nullable=False)
-    created_at = Column(DateTime, default=get_kst_now, nullable=False) # nullable=False 추가
-    is_active = Column(Boolean, default=True, nullable=False) # nullable=False 추가
+    created_at = Column(DateTime, default=get_kst_now, nullable=False)
+    is_active = Column(Boolean, default=True, nullable=False)
 
-    # Define the relationship to NoseVector.
-    # Use string literal 'NoseVector' to avoid circular import issues.
-    # 'back_populates' ensures a two-way relationship.
-    nose_vectors = relationship("NoseVector", back_populates="user")
+    # 이 사용자와 관련된 NoseVector 레코드 목록
+    # relationship 정의 시 문자열 'NoseVector' 사용
+    user_nose_vectors = relationship("NoseVector", back_populates="user") # 변수명 변경
 
     def __repr__(self):
         """
-        Provides a helpful representation of the User object for debugging.
+        User 객체의 표현을 반환합니다.
         """
-        return f"<User(id={self.id}, username='{self.username}')>"
-
-# 순환 참조를 피하기 위해 model 파일에서는 다른 model을 직접 import하기보다
-# relationship 정의 시 문자열로 참조하는 것이 일반적입니다.
-# 따라서 from .nose import NoseVector 라인은 필요 없을 수 있습니다.
+        return f"<User(user_id={self.user_id}, username='{self.username}')>"
