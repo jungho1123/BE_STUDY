@@ -1,0 +1,192 @@
+app
+ ┣ api
+ ┃ ┣ auth
+ ┃ ┃ ┣ router.py
+ ┃ ┃ ┣ schema.py
+ ┃ ┃ ┣ utils.py
+ ┃ ┃ ┗ __init__.py
+ ┃ ┣ comic
+ ┃ ┃ ┣ router.py
+ ┃ ┃ ┣ schema.py
+ ┃ ┃ ┗ __init__.py
+ ┃ ┣ dog_posts
+ ┃ ┃ ┣ router.py
+ ┃ ┃ ┣ schema.py
+ ┃ ┃ ┣ service.py
+ ┃ ┃ ┗ __init__.py
+ ┃ ┣ eye
+ ┃ ┃ ┣ router.py
+ ┃ ┃ ┣ schema.py
+ ┃ ┃ ┗ __init__.py
+ ┃ ┣ nose
+ ┃ ┃ ┣ router.py
+ ┃ ┃ ┣ schema.py
+ ┃ ┃ ┣ service.py
+ ┃ ┃ ┗ __init__.py
+ ┃ ┗ main_router.py
+ ┣ core
+ ┃ ┣ __pycache__
+ ┃ ┃ ┣ config.cpython-310.pyc
+ ┃ ┃ ┣ security.cpython-310.pyc
+ ┃ ┃ ┗ time.cpython-310.pyc
+ ┃ ┣ config.py
+ ┃ ┣ constants.py
+ ┃ ┣ exceptions.py
+ ┃ ┣ security.py
+ ┃ ┗ time.py
+ ┣ database
+ ┃ ┣ migrations
+ ┃ ┃ ┣ versions
+ ┃ ┃ ┃ ┣ __pycache__
+ ┃ ┃ ┃ ┃ ┣ 8b1728450823_create_users_table.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┣ 94ff080049df_extend_user_model.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┣ dd6c5593c8ff_add_user_id_to_nose_vectors.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┗ f9982c5c2c64_add_nose_vectors.cpython-310.pyc
+ ┃ ┃ ┃ ┣ 8b1728450823_create_users_table.py
+ ┃ ┃ ┃ ┣ 94ff080049df_extend_user_model.py
+ ┃ ┃ ┃ ┣ dd6c5593c8ff_add_user_id_to_nose_vectors.py
+ ┃ ┃ ┃ ┗ f9982c5c2c64_add_nose_vectors.py
+ ┃ ┃ ┣ __pycache__
+ ┃ ┃ ┃ ┗ env.cpython-310.pyc
+ ┃ ┃ ┣ env.py
+ ┃ ┃ ┣ README
+ ┃ ┃ ┗ script.py.mako
+ ┃ ┣ __pycache__
+ ┃ ┃ ┣ base.cpython-310.pyc
+ ┃ ┃ ┗ session.cpython-310.pyc
+ ┃ ┣ base.py
+ ┃ ┗ session.py
+ ┣ models
+ ┃ ┣ __pycache__
+ ┃ ┃ ┣ nose.cpython-310.pyc
+ ┃ ┃ ┣ post.cpython-310.pyc
+ ┃ ┃ ┣ user.cpython-310.pyc
+ ┃ ┃ ┗ __init__.cpython-310.pyc
+ ┃ ┣ nose.py
+ ┃ ┣ post.py
+ ┃ ┣ user.py
+ ┃ ┗ __init__.py
+ ┣ schemas
+ ┃ ┗ common.py
+ ┣ scripts
+ ┃ ┣ __pycache__
+ ┃ ┃ ┣ admin_nose_v_db.cpython-310.pyc
+ ┃ ┃ ┣ create_admin_user.cpython-310.pyc
+ ┃ ┃ ┣ reset_db.cpython-310.pyc
+ ┃ ┃ ┗ __init__.cpython-310.pyc
+ ┃ ┣ admin_nose_v_db.py
+ ┃ ┣ create_admin_user.py
+ ┃ ┣ reset_db.py
+ ┃ ┗ __init__.py
+ ┣ static
+ ┃ ┗ uploads
+ ┗ main.py
+
+
+
+ 🔷 최상위 구조 설명
+경로	역할
+app/main.py	FastAPI 앱 실행 진입점 (uvicorn이 참조하는 파일)
+app/api/	라우터 계층: 도메인별 API 진입점 모음 (auth, nose, comic 등)
+app/core/	설정, 공통 기능, 예외 처리, 보안 설정 등 핵심 유틸리티 모듈
+app/database/	DB 연결 및 Alembic 마이그레이션 구성 디렉토리
+app/models/	SQLAlchemy ORM 모델 정의 (user, nose, post 등)
+app/schemas/	공통 pydantic 스키마 정의 (도메인에 독립적인 구조)
+app/scripts/	관리용 스크립트 모음 (DB 초기화, admin 계정 생성 등)
+app/static/	정적 파일 저장소 (예: 업로드 이미지 등)
+
+🔷 상세 파일 역할
+📁 api/
+각 도메인별로 라우터와 스키마, 서비스 코드가 분리되어 있습니다.
+
+auth/
+
+router.py: 로그인, 회원가입 등 인증 관련 API 정의
+
+schema.py: 로그인 요청/응답 스키마 (LoginRequest, TokenResponse 등)
+
+utils.py: 토큰 발급, 비밀번호 해시 등 보조 로직
+
+__init__.py: 모듈 초기화
+
+comic/
+
+router.py: GPT 기반 4컷 만화 생성 API
+
+schema.py: 만화 생성 요청/응답 스키마
+
+dog_posts/
+
+router.py: 게시글 등록, 조회, 삭제 등의 API
+
+schema.py: 게시글 요청/응답 스키마
+
+service.py: 게시글 관련 비즈니스 로직
+
+eye/
+
+router.py: 안구질환 예측 API
+
+schema.py: 예측 요청/응답 스키마
+
+nose/
+
+router.py: 비문 인증 API 엔드포인트
+
+schema.py: 비문 요청/응답 스키마
+
+service.py: 특징 벡터 추출, 유사도 계산, DB 등록 등의 서비스 로직
+
+main_router.py: 위의 모든 라우터를 통합하는 최상위 라우터
+
+📁 core/
+FastAPI 앱의 핵심 설정과 보안/공통 유틸리티가 들어 있습니다.
+
+config.py: 환경 변수, 설정 정보 로딩
+
+constants.py: 고정 상수 정의 (예: threshold 값 등)
+
+exceptions.py: 커스텀 예외 클래스 정의
+
+security.py: JWT 인증, 비밀번호 해시화 로직
+
+time.py: KST 기준 시간 유틸리티
+
+📁 database/
+session.py: SQLAlchemy 세션 연결 설정
+
+base.py: Base = declarative_base() 정의
+
+migrations/: Alembic 마이그레이션 디렉토리
+
+env.py: Alembic 환경 설정 파일
+
+versions/*.py: DB 테이블 구조 변경 기록 파일들
+
+📁 models/
+user.py: User 테이블 정의 (id, username, email 등)
+
+nose.py: NoseVector 테이블 정의 (class_id, user_id, vector 등)
+
+post.py: 강아지 게시글 관련 모델
+
+__init__.py: 각 모델 import 등록
+
+📁 schemas/
+common.py: 공통으로 사용되는 pydantic 스키마 (TimestampMixin, 공통 응답 등)
+
+도메인별 스키마는 api/{domain}/schema.py에 정의됨
+
+📁 scripts/
+FastAPI 실행과는 별도로 단발성으로 실행하는 스크립트들입니다.
+
+reset_db.py: 전체 테이블 Drop 후 재생성
+
+create_admin_user.py: 관리자 계정 1개 생성
+
+admin_nose_v_db.py: nose_vectors 테이블에 CSV 기반 벡터 삽입
+
+__init__.py: 스크립트 모듈 초기화
+
+📁 static/uploads/
+사용자가 업로드한 이미지 등을 저장하는 디렉토리입니다.
