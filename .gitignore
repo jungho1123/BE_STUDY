@@ -39,3 +39,9 @@ static/uploads/
 
 #scripts
 scripts/
+
+#model
+*.pth
+
+#core
+core/
