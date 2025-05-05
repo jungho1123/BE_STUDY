@@ -37,17 +37,7 @@ app
  ┣ database
  ┃ ┣ migrations
  ┃ ┃ ┣ versions
- ┃ ┃ ┃ ┣ __pycache__
- ┃ ┃ ┃ ┃ ┣ 8b1728450823_create_users_table.cpython-310.pyc
- ┃ ┃ ┃ ┃ ┣ 94ff080049df_extend_user_model.cpython-310.pyc
- ┃ ┃ ┃ ┃ ┣ dd6c5593c8ff_add_user_id_to_nose_vectors.cpython-310.pyc
- ┃ ┃ ┃ ┃ ┗ f9982c5c2c64_add_nose_vectors.cpython-310.pyc
- ┃ ┃ ┃ ┣ 8b1728450823_create_users_table.py
- ┃ ┃ ┃ ┣ 94ff080049df_extend_user_model.py
- ┃ ┃ ┃ ┣ dd6c5593c8ff_add_user_id_to_nose_vectors.py
- ┃ ┃ ┃ ┗ f9982c5c2c64_add_nose_vectors.py
  ┃ ┃ ┣ __pycache__
- ┃ ┃ ┃ ┗ env.cpython-310.pyc
  ┃ ┃ ┣ env.py
  ┃ ┃ ┣ README
  ┃ ┃ ┗ script.py.mako
@@ -56,6 +46,492 @@ app
  ┃ ┃ ┗ session.cpython-310.pyc
  ┃ ┣ base.py
  ┃ ┗ session.py
+ ┣ ml_models
+ ┃ ┣ nose_non_print
+ ┃ ┃ ┣ backbone
+ ┃ ┃ ┃ ┣ ibnnet
+ ┃ ┃ ┃ ┃ ┣ __pycache__
+ ┃ ┃ ┃ ┃ ┃ ┣ densenet_ibn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┣ modules.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┣ resnet_ibn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┣ resnext_ibn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┣ se_resnet_ibn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┣ densenet_ibn.py
+ ┃ ┃ ┃ ┃ ┣ LICENSE.txt
+ ┃ ┃ ┃ ┃ ┣ modules.py
+ ┃ ┃ ┃ ┃ ┣ resnet_ibn.py
+ ┃ ┃ ┃ ┃ ┣ resnext_ibn.py
+ ┃ ┃ ┃ ┃ ┣ se_resnet_ibn.py
+ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┣ timm
+ ┃ ┃ ┃ ┃ ┣ data
+ ┃ ┃ ┃ ┃ ┃ ┣ readers
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ class_map.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ img_extensions.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader_factory.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader_hfds.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader_hfids.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader_image_folder.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader_image_in_tar.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader_image_tar.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader_tfds.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ reader_wds.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ shared_count.py
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _info
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet12k_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet21k_goog_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet21k_goog_to_12k_indices.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet21k_goog_to_22k_indices.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet21k_miil_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet21k_miil_w21_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet22k_ms_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet22k_ms_to_12k_indices.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet22k_ms_to_22k_indices.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet22k_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet22k_to_12k_indices.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_a_indices.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_a_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_real_labels.json
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_r_indices.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_r_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_synset_to_definition.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_synset_to_lemma.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ mini_imagenet_indices.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ mini_imagenet_synsets.txt
+ ┃ ┃ ┃ ┃ ┃ ┣ auto_augment.py
+ ┃ ┃ ┃ ┃ ┃ ┣ config.py
+ ┃ ┃ ┃ ┃ ┃ ┣ constants.py
+ ┃ ┃ ┃ ┃ ┃ ┣ dataset.py
+ ┃ ┃ ┃ ┃ ┃ ┣ dataset_factory.py
+ ┃ ┃ ┃ ┃ ┃ ┣ dataset_info.py
+ ┃ ┃ ┃ ┃ ┃ ┣ distributed_sampler.py
+ ┃ ┃ ┃ ┃ ┃ ┣ imagenet_info.py
+ ┃ ┃ ┃ ┃ ┃ ┣ loader.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mixup.py
+ ┃ ┃ ┃ ┃ ┃ ┣ random_erasing.py
+ ┃ ┃ ┃ ┃ ┃ ┣ real_labels.py
+ ┃ ┃ ┃ ┃ ┃ ┣ tf_preprocessing.py
+ ┃ ┃ ┃ ┃ ┃ ┣ transforms.py
+ ┃ ┃ ┃ ┃ ┃ ┣ transforms_factory.py
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┣ layers
+ ┃ ┃ ┃ ┃ ┃ ┣ __pycache__
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ activations.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ activations_me.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ adaptive_avgmax_pool.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ attention2d.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ attention_pool.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ attention_pool2d.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ blur_pool.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ bottleneck_attn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ cbam.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ classifier.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ cond_conv2d.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ config.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ conv2d_same.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ conv_bn_act.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ create_act.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ create_attn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ create_conv2d.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ create_norm.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ create_norm_act.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ drop.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ eca.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ evo_norm.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ fast_norm.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ filter_response_norm.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ format.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ gather_excite.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ global_context.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ grid.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ grn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ halo_attn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ helpers.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ hybrid_embed.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ inplace_abn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ interpolate.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ lambda_layer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ layer_scale.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ linear.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ mixed_conv2d.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ mlp.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ non_local_attn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ norm.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ norm_act.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ padding.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ patch_dropout.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ patch_embed.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ pool2d_same.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ pos_embed.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ pos_embed_rel.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ pos_embed_sincos.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ selective_kernel.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ separable_conv.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ space_to_depth.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ split_attn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ split_batchnorm.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ squeeze_excite.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ std_conv.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ test_time_pool.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ trace_utils.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ typing.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ weight_init.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ __init__.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┣ activations.py
+ ┃ ┃ ┃ ┃ ┃ ┣ activations_me.py
+ ┃ ┃ ┃ ┃ ┃ ┣ adaptive_avgmax_pool.py
+ ┃ ┃ ┃ ┃ ┃ ┣ attention2d.py
+ ┃ ┃ ┃ ┃ ┃ ┣ attention_pool.py
+ ┃ ┃ ┃ ┃ ┃ ┣ attention_pool2d.py
+ ┃ ┃ ┃ ┃ ┃ ┣ blur_pool.py
+ ┃ ┃ ┃ ┃ ┃ ┣ bottleneck_attn.py
+ ┃ ┃ ┃ ┃ ┃ ┣ cbam.py
+ ┃ ┃ ┃ ┃ ┃ ┣ classifier.py
+ ┃ ┃ ┃ ┃ ┃ ┣ cond_conv2d.py
+ ┃ ┃ ┃ ┃ ┃ ┣ config.py
+ ┃ ┃ ┃ ┃ ┃ ┣ conv2d_same.py
+ ┃ ┃ ┃ ┃ ┃ ┣ conv_bn_act.py
+ ┃ ┃ ┃ ┃ ┃ ┣ create_act.py
+ ┃ ┃ ┃ ┃ ┃ ┣ create_attn.py
+ ┃ ┃ ┃ ┃ ┃ ┣ create_conv2d.py
+ ┃ ┃ ┃ ┃ ┃ ┣ create_norm.py
+ ┃ ┃ ┃ ┃ ┃ ┣ create_norm_act.py
+ ┃ ┃ ┃ ┃ ┃ ┣ drop.py
+ ┃ ┃ ┃ ┃ ┃ ┣ eca.py
+ ┃ ┃ ┃ ┃ ┃ ┣ evo_norm.py
+ ┃ ┃ ┃ ┃ ┃ ┣ fast_norm.py
+ ┃ ┃ ┃ ┃ ┃ ┣ filter_response_norm.py
+ ┃ ┃ ┃ ┃ ┃ ┣ format.py
+ ┃ ┃ ┃ ┃ ┃ ┣ gather_excite.py
+ ┃ ┃ ┃ ┃ ┃ ┣ global_context.py
+ ┃ ┃ ┃ ┃ ┃ ┣ grid.py
+ ┃ ┃ ┃ ┃ ┃ ┣ grn.py
+ ┃ ┃ ┃ ┃ ┃ ┣ halo_attn.py
+ ┃ ┃ ┃ ┃ ┃ ┣ helpers.py
+ ┃ ┃ ┃ ┃ ┃ ┣ hybrid_embed.py
+ ┃ ┃ ┃ ┃ ┃ ┣ inplace_abn.py
+ ┃ ┃ ┃ ┃ ┃ ┣ interpolate.py
+ ┃ ┃ ┃ ┃ ┃ ┣ lambda_layer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ layer_scale.py
+ ┃ ┃ ┃ ┃ ┃ ┣ linear.py
+ ┃ ┃ ┃ ┃ ┃ ┣ median_pool.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mixed_conv2d.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mlp.py
+ ┃ ┃ ┃ ┃ ┃ ┣ ml_decoder.py
+ ┃ ┃ ┃ ┃ ┃ ┣ non_local_attn.py
+ ┃ ┃ ┃ ┃ ┃ ┣ norm.py
+ ┃ ┃ ┃ ┃ ┃ ┣ norm_act.py
+ ┃ ┃ ┃ ┃ ┃ ┣ padding.py
+ ┃ ┃ ┃ ┃ ┃ ┣ patch_dropout.py
+ ┃ ┃ ┃ ┃ ┃ ┣ patch_embed.py
+ ┃ ┃ ┃ ┃ ┃ ┣ pool2d_same.py
+ ┃ ┃ ┃ ┃ ┃ ┣ pos_embed.py
+ ┃ ┃ ┃ ┃ ┃ ┣ pos_embed_rel.py
+ ┃ ┃ ┃ ┃ ┃ ┣ pos_embed_sincos.py
+ ┃ ┃ ┃ ┃ ┃ ┣ selective_kernel.py
+ ┃ ┃ ┃ ┃ ┃ ┣ separable_conv.py
+ ┃ ┃ ┃ ┃ ┃ ┣ space_to_depth.py
+ ┃ ┃ ┃ ┃ ┃ ┣ split_attn.py
+ ┃ ┃ ┃ ┃ ┃ ┣ split_batchnorm.py
+ ┃ ┃ ┃ ┃ ┃ ┣ squeeze_excite.py
+ ┃ ┃ ┃ ┃ ┃ ┣ std_conv.py
+ ┃ ┃ ┃ ┃ ┃ ┣ test_time_pool.py
+ ┃ ┃ ┃ ┃ ┃ ┣ trace_utils.py
+ ┃ ┃ ┃ ┃ ┃ ┣ typing.py
+ ┃ ┃ ┃ ┃ ┃ ┣ weight_init.py
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┣ loss
+ ┃ ┃ ┃ ┃ ┃ ┣ asymmetric_loss.py
+ ┃ ┃ ┃ ┃ ┃ ┣ binary_cross_entropy.py
+ ┃ ┃ ┃ ┃ ┃ ┣ cross_entropy.py
+ ┃ ┃ ┃ ┃ ┃ ┣ jsd.py
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┣ models
+ ┃ ┃ ┃ ┃ ┃ ┣ layers
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _pruned
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ ecaresnet101d_pruned.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ ecaresnet50d_pruned.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ efficientnet_b1_pruned.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ efficientnet_b2_pruned.txt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ efficientnet_b3_pruned.txt
+ ┃ ┃ ┃ ┃ ┃ ┣ __pycache__
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ beit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ byoanet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ byobnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ cait.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ coat.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ convit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ convmixer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ convnext.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ crossvit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ cspnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ davit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ deit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ densenet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ dla.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ dpn.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ edgenext.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ efficientformer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ efficientformer_v2.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ efficientnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ efficientvit_mit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ efficientvit_msra.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ eva.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ fastvit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ focalnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ gcvit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ ghostnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ hardcorenas.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ hgnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ hiera.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ hieradet_sam2.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ hrnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ inception_next.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ inception_resnet_v2.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ inception_v3.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ inception_v4.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ levit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ mambaout.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ maxxvit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ metaformer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ mlp_mixer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ mobilenetv3.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ mobilevit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ mvitv2.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ nasnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ nest.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ nextvit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ nfnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ pit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ pnasnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ pvt_v2.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ rdnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ regnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ repghost.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ repvit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ res2net.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ resnest.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ resnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ resnetv2.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ resnet_ibn_custom.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ rexnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ selecsls.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ senet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ sequencer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ seresnet_ibn_custom.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ sknet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ swin_transformer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ swin_transformer_v2.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ swin_transformer_v2_cr.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ tiny_vit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ tnt.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ tresnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ twins.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ vgg.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ visformer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ vision_transformer.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ vision_transformer_hybrid.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ vision_transformer_relpos.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ vision_transformer_sam.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ vitamin.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ volo.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ vovnet.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ xception.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ xception_aligned.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ xcit.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _builder.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _efficientnet_blocks.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _efficientnet_builder.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _factory.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _features.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _features_fx.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _helpers.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _hub.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _manipulate.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _pretrained.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _prune.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ _registry.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ __init__.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┣ beit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ byoanet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ byobnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ cait.py
+ ┃ ┃ ┃ ┃ ┃ ┣ coat.py
+ ┃ ┃ ┃ ┃ ┃ ┣ convit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ convmixer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ convnext.py
+ ┃ ┃ ┃ ┃ ┃ ┣ crossvit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ cspnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ davit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ deit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ densenet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ dla.py
+ ┃ ┃ ┃ ┃ ┃ ┣ dpn.py
+ ┃ ┃ ┃ ┃ ┃ ┣ edgenext.py
+ ┃ ┃ ┃ ┃ ┃ ┣ efficientformer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ efficientformer_v2.py
+ ┃ ┃ ┃ ┃ ┃ ┣ efficientnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ efficientvit_mit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ efficientvit_msra.py
+ ┃ ┃ ┃ ┃ ┃ ┣ eva.py
+ ┃ ┃ ┃ ┃ ┃ ┣ factory.py
+ ┃ ┃ ┃ ┃ ┃ ┣ fastvit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ features.py
+ ┃ ┃ ┃ ┃ ┃ ┣ focalnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ fx_features.py
+ ┃ ┃ ┃ ┃ ┃ ┣ gcvit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ ghostnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ hardcorenas.py
+ ┃ ┃ ┃ ┃ ┃ ┣ helpers.py
+ ┃ ┃ ┃ ┃ ┃ ┣ hgnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ hiera.py
+ ┃ ┃ ┃ ┃ ┃ ┣ hieradet_sam2.py
+ ┃ ┃ ┃ ┃ ┃ ┣ hrnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ hub.py
+ ┃ ┃ ┃ ┃ ┃ ┣ inception_next.py
+ ┃ ┃ ┃ ┃ ┃ ┣ inception_resnet_v2.py
+ ┃ ┃ ┃ ┃ ┃ ┣ inception_v3.py
+ ┃ ┃ ┃ ┃ ┃ ┣ inception_v4.py
+ ┃ ┃ ┃ ┃ ┃ ┣ levit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mambaout.py
+ ┃ ┃ ┃ ┃ ┃ ┣ maxxvit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ metaformer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mlp_mixer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mobilenetv3.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mobilevit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mvitv2.py
+ ┃ ┃ ┃ ┃ ┃ ┣ nasnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ nest.py
+ ┃ ┃ ┃ ┃ ┃ ┣ nextvit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ nfnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ pit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ pnasnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ pvt_v2.py
+ ┃ ┃ ┃ ┃ ┃ ┣ rdnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ registry.py
+ ┃ ┃ ┃ ┃ ┃ ┣ regnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ repghost.py
+ ┃ ┃ ┃ ┃ ┃ ┣ repvit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ res2net.py
+ ┃ ┃ ┃ ┃ ┃ ┣ resnest.py
+ ┃ ┃ ┃ ┃ ┃ ┣ resnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ resnetv2.py
+ ┃ ┃ ┃ ┃ ┃ ┣ resnet_ibn_custom.py
+ ┃ ┃ ┃ ┃ ┃ ┣ resnet_ibn_custom_early.py
+ ┃ ┃ ┃ ┃ ┃ ┣ rexnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ selecsls.py
+ ┃ ┃ ┃ ┃ ┃ ┣ senet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ sequencer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ seresnet_ibn_custom.py
+ ┃ ┃ ┃ ┃ ┃ ┣ sknet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ swin_transformer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ swin_transformer_v2.py
+ ┃ ┃ ┃ ┃ ┃ ┣ swin_transformer_v2_cr.py
+ ┃ ┃ ┃ ┃ ┃ ┣ tiny_vit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ tnt.py
+ ┃ ┃ ┃ ┃ ┃ ┣ tresnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ twins.py
+ ┃ ┃ ┃ ┃ ┃ ┣ vgg.py
+ ┃ ┃ ┃ ┃ ┃ ┣ visformer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ vision_transformer.py
+ ┃ ┃ ┃ ┃ ┃ ┣ vision_transformer_hybrid.py
+ ┃ ┃ ┃ ┃ ┃ ┣ vision_transformer_relpos.py
+ ┃ ┃ ┃ ┃ ┃ ┣ vision_transformer_sam.py
+ ┃ ┃ ┃ ┃ ┃ ┣ vitamin.py
+ ┃ ┃ ┃ ┃ ┃ ┣ volo.py
+ ┃ ┃ ┃ ┃ ┃ ┣ vovnet.py
+ ┃ ┃ ┃ ┃ ┃ ┣ xception.py
+ ┃ ┃ ┃ ┃ ┃ ┣ xception_aligned.py
+ ┃ ┃ ┃ ┃ ┃ ┣ xcit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _builder.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _efficientnet_blocks.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _efficientnet_builder.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _factory.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _features.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _features_fx.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _helpers.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _hub.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _manipulate.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _pretrained.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _prune.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _registry.py
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┣ optim
+ ┃ ┃ ┃ ┃ ┃ ┣ adabelief.py
+ ┃ ┃ ┃ ┃ ┃ ┣ adafactor.py
+ ┃ ┃ ┃ ┃ ┃ ┣ adafactor_bv.py
+ ┃ ┃ ┃ ┃ ┃ ┣ adahessian.py
+ ┃ ┃ ┃ ┃ ┃ ┣ adamp.py
+ ┃ ┃ ┃ ┃ ┃ ┣ adamw.py
+ ┃ ┃ ┃ ┃ ┃ ┣ adan.py
+ ┃ ┃ ┃ ┃ ┃ ┣ adopt.py
+ ┃ ┃ ┃ ┃ ┃ ┣ kron.py
+ ┃ ┃ ┃ ┃ ┃ ┣ lamb.py
+ ┃ ┃ ┃ ┃ ┃ ┣ laprop.py
+ ┃ ┃ ┃ ┃ ┃ ┣ lars.py
+ ┃ ┃ ┃ ┃ ┃ ┣ lion.py
+ ┃ ┃ ┃ ┃ ┃ ┣ lookahead.py
+ ┃ ┃ ┃ ┃ ┃ ┣ madgrad.py
+ ┃ ┃ ┃ ┃ ┃ ┣ mars.py
+ ┃ ┃ ┃ ┃ ┃ ┣ nadam.py
+ ┃ ┃ ┃ ┃ ┃ ┣ nadamw.py
+ ┃ ┃ ┃ ┃ ┃ ┣ nvnovograd.py
+ ┃ ┃ ┃ ┃ ┃ ┣ optim_factory.py
+ ┃ ┃ ┃ ┃ ┃ ┣ radam.py
+ ┃ ┃ ┃ ┃ ┃ ┣ rmsprop_tf.py
+ ┃ ┃ ┃ ┃ ┃ ┣ sgdp.py
+ ┃ ┃ ┃ ┃ ┃ ┣ sgdw.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _optim_factory.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _param_groups.py
+ ┃ ┃ ┃ ┃ ┃ ┣ _types.py
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┣ scheduler
+ ┃ ┃ ┃ ┃ ┃ ┣ cosine_lr.py
+ ┃ ┃ ┃ ┃ ┃ ┣ multistep_lr.py
+ ┃ ┃ ┃ ┃ ┃ ┣ plateau_lr.py
+ ┃ ┃ ┃ ┃ ┃ ┣ poly_lr.py
+ ┃ ┃ ┃ ┃ ┃ ┣ scheduler.py
+ ┃ ┃ ┃ ┃ ┃ ┣ scheduler_factory.py
+ ┃ ┃ ┃ ┃ ┃ ┣ step_lr.py
+ ┃ ┃ ┃ ┃ ┃ ┣ tanh_lr.py
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┣ utils
+ ┃ ┃ ┃ ┃ ┃ ┣ agc.py
+ ┃ ┃ ┃ ┃ ┃ ┣ attention_extract.py
+ ┃ ┃ ┃ ┃ ┃ ┣ checkpoint_saver.py
+ ┃ ┃ ┃ ┃ ┃ ┣ clip_grad.py
+ ┃ ┃ ┃ ┃ ┃ ┣ cuda.py
+ ┃ ┃ ┃ ┃ ┃ ┣ decay_batch.py
+ ┃ ┃ ┃ ┃ ┃ ┣ distributed.py
+ ┃ ┃ ┃ ┃ ┃ ┣ jit.py
+ ┃ ┃ ┃ ┃ ┃ ┣ log.py
+ ┃ ┃ ┃ ┃ ┃ ┣ metrics.py
+ ┃ ┃ ┃ ┃ ┃ ┣ misc.py
+ ┃ ┃ ┃ ┃ ┃ ┣ model.py
+ ┃ ┃ ┃ ┃ ┃ ┣ model_ema.py
+ ┃ ┃ ┃ ┃ ┃ ┣ onnx.py
+ ┃ ┃ ┃ ┃ ┃ ┣ random.py
+ ┃ ┃ ┃ ┃ ┃ ┣ summary.py
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┃ ┣ __pycache__
+ ┃ ┃ ┃ ┃ ┃ ┣ version.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┃ ┗ __init__.cpython-310.pyc
+ ┃ ┃ ┃ ┃ ┣ LICENSE.txt
+ ┃ ┃ ┃ ┃ ┣ py.typed
+ ┃ ┃ ┃ ┃ ┣ version.py
+ ┃ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┃ ┣ backbone_build.py
+ ┃ ┃ ┃ ┗ __init__.py
+ ┃ ┃ ┣ seresnext50_ibn_custom.pth
+ ┃ ┃ ┣ siamese_cosine.py
+ ┃ ┃ ┣ transforms.py
+ ┃ ┃ ┗ __init__.py
+ ┃ ┗ __init__.py
  ┣ models
  ┃ ┣ __pycache__
  ┃ ┃ ┣ nose.cpython-310.pyc
@@ -76,117 +552,12 @@ app
  ┃ ┃ ┗ __init__.cpython-310.pyc
  ┃ ┣ admin_nose_v_db.py
  ┃ ┣ create_admin_user.py
+ ┃ ┣ load_initial_nose_vectors.py
  ┃ ┣ reset_db.py
  ┃ ┗ __init__.py
  ┣ static
  ┃ ┗ uploads
+ ┣ utils
+ ┃ ┣ vector_processor.py
+ ┃ ┗ __init__.py
  ┗ main.py
-
-
-
- 🔷 최상위 구조 설명
-경로	역할
-app/main.py	FastAPI 앱 실행 진입점 (uvicorn이 참조하는 파일)
-app/api/	라우터 계층: 도메인별 API 진입점 모음 (auth, nose, comic 등)
-app/core/	설정, 공통 기능, 예외 처리, 보안 설정 등 핵심 유틸리티 모듈
-app/database/	DB 연결 및 Alembic 마이그레이션 구성 디렉토리
-app/models/	SQLAlchemy ORM 모델 정의 (user, nose, post 등)
-app/schemas/	공통 pydantic 스키마 정의 (도메인에 독립적인 구조)
-app/scripts/	관리용 스크립트 모음 (DB 초기화, admin 계정 생성 등)
-app/static/	정적 파일 저장소 (예: 업로드 이미지 등)
-
-🔷 상세 파일 역할
-📁 api/
-각 도메인별로 라우터와 스키마, 서비스 코드가 분리되어 있습니다.
-
-auth/
-
-router.py: 로그인, 회원가입 등 인증 관련 API 정의
-
-schema.py: 로그인 요청/응답 스키마 (LoginRequest, TokenResponse 등)
-
-utils.py: 토큰 발급, 비밀번호 해시 등 보조 로직
-
-__init__.py: 모듈 초기화
-
-comic/
-
-router.py: GPT 기반 4컷 만화 생성 API
-
-schema.py: 만화 생성 요청/응답 스키마
-
-dog_posts/
-
-router.py: 게시글 등록, 조회, 삭제 등의 API
-
-schema.py: 게시글 요청/응답 스키마
-
-service.py: 게시글 관련 비즈니스 로직
-
-eye/
-
-router.py: 안구질환 예측 API
-
-schema.py: 예측 요청/응답 스키마
-
-nose/
-
-router.py: 비문 인증 API 엔드포인트
-
-schema.py: 비문 요청/응답 스키마
-
-service.py: 특징 벡터 추출, 유사도 계산, DB 등록 등의 서비스 로직
-
-main_router.py: 위의 모든 라우터를 통합하는 최상위 라우터
-
-📁 core/
-FastAPI 앱의 핵심 설정과 보안/공통 유틸리티가 들어 있습니다.
-
-config.py: 환경 변수, 설정 정보 로딩
-
-constants.py: 고정 상수 정의 (예: threshold 값 등)
-
-exceptions.py: 커스텀 예외 클래스 정의
-
-security.py: JWT 인증, 비밀번호 해시화 로직
-
-time.py: KST 기준 시간 유틸리티
-
-📁 database/
-session.py: SQLAlchemy 세션 연결 설정
-
-base.py: Base = declarative_base() 정의
-
-migrations/: Alembic 마이그레이션 디렉토리
-
-env.py: Alembic 환경 설정 파일
-
-versions/*.py: DB 테이블 구조 변경 기록 파일들
-
-📁 models/
-user.py: User 테이블 정의 (id, username, email 등)
-
-nose.py: NoseVector 테이블 정의 (class_id, user_id, vector 등)
-
-post.py: 강아지 게시글 관련 모델
-
-__init__.py: 각 모델 import 등록
-
-📁 schemas/
-common.py: 공통으로 사용되는 pydantic 스키마 (TimestampMixin, 공통 응답 등)
-
-도메인별 스키마는 api/{domain}/schema.py에 정의됨
-
-📁 scripts/
-FastAPI 실행과는 별도로 단발성으로 실행하는 스크립트들입니다.
-
-reset_db.py: 전체 테이블 Drop 후 재생성
-
-create_admin_user.py: 관리자 계정 1개 생성
-
-admin_nose_v_db.py: nose_vectors 테이블에 CSV 기반 벡터 삽입
-
-__init__.py: 스크립트 모듈 초기화
-
-📁 static/uploads/
-사용자가 업로드한 이미지 등을 저장하는 디렉토리입니다.
