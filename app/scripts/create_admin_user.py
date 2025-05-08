@@ -17,7 +17,7 @@ def create_admin():
     db.add(user)
     db.commit()
     db.refresh(user)
-    print(f"[INFO] 관리자 계정 생성 완료. user_id = {user.id}")
+    print(f"[INFO] 관리자 계정 생성 완료. user_id = {user.user_id}")
     db.close()
 
 if __name__ == "__main__":
